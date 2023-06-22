@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+</head>
+<body>
+    <header>
+        This is a keyboard Game:
+    </header>
+    <main>
+        <p>Press Any KEY:</p>
+        <div class="keyboard">
+            <div class="key" id="65">A</div>
+            <div class="key" id="66">B</div>
+            <div class="key" id="67">C</div>
+            <div class="key" id="68">D</div>
+            <div class="key" id="69">E</div>
+            <div class="key" id="70">F</div>
+            <div class="key" id="71">G</div>
+            <div class="key" id="72">H</div>
+            <div class="key" id="73">I</div>
+            <div class="key" id="74">J</div>
+            <div class="key" id="75">K</div>
+            <div class="key" id="76">L</div>
+            <div class="key" id="77">M</div>
+            <div class="key" id="78">N</div>
+            <div class="key" id="79">O</div>
+            <div class="key" id="80">P</div>
+            <div class="key" id="81">Q</div>
+            <div class="key" id="82">R</div>
+            <div class="key" id="83">S</div>
+            <div class="key" id="84">T</div>
+            <div class="key" id="85">U</div>
+            <div class="key" id="86">V</div>
+            <div class="key" id="87">W</div>
+            <div class="key" id="88">X</div>
+            <div class="key" id="89">Y</div>
+            <div class="key" id="90">Z</div>
+        </div>
+        <div class="audios">
+            <audio src="1 (1).wav" id="1"></audio>
+            <audio src="1 (2).wav" id="2"></audio>
+            <audio src="1 (3).wav" id="3"></audio>
+            <audio src="1 (4).wav" id="4"></audio>
+            <audio src="1 (5).wav" id="5"></audio>
+            <audio src="1 (6).wav" id="6"></audio>
+            <audio src="1 (7).wav" id="7"></audio>
+            <audio src="1 (8).wav" id="8"></audio>
+            <audio src="1 (9).wav" id="9"></audio>
+            <audio src="1 (10).wav" id="10"></audio>
+            <audio src="1 (11).wav" id="11"></audio>
+            <audio src="1 (12).wav" id="12"></audio>
+            <audio src="1 (13).wav" id="13"></audio>
+            <audio src="1 (14).wav" id="14"></audio>
+            <audio src="1 (15).wav" id="15"></audio>
+            <audio src="1 (16).wav" id="16"></audio>
+            <audio src="1 (17).wav" id="17"></audio>
+            <audio src="1 (18).wav" id="18"></audio>
+            <audio src="1 (19).wav" id="19"></audio>
+            <audio src="1 (20).wav" id="20"></audio>
+            <audio src="1 (21).wav" id="21"></audio>
+            <audio src="1 (22).wav" id="22"></audio>
+            <audio src="1 (23).wav" id="23"></audio>
+            <audio src="1 (24).wav" id="24"></audio>
+            <audio src="1 (25).wav" id="25"></audio>
+            <audio src="1 (26).wav" id="26"></audio>
+        </div>
+    </main>
+    <script>
+        var key = document.querySelector('.key');
+        var keyBgColor = window.getComputedStyle(key).backgroundColor;
+        document.body.addEventListener('keypress', function(e){
+            var randomNumber1 = Math.floor(Math.random()*255);
+            var randomNumber2 = Math.floor(Math.random()*255);
+            var randomNumber3 = Math.floor(Math.random()*255);
+            var keycode = e.keyCode;
+            if(keycode >= 97 && keycode <= 123){
+                keycode = (keycode -32);
+            }
+            var forAudio = 0;
+            if(keycode >= 65 && keycode <= 91){
+                forAudio = keycode - 64;
+            } else if(keycode >= 97 && keycode <= 123){
+                forAudio = keycode - 96;
+            }
+                document.getElementById(keycode).style.backgroundColor = 'rgb(' + randomNumber1 + ', ' + randomNumber2 + ', ' + randomNumber3 + ')'; 
+                document.getElementById(forAudio).play(true);
+            })
+        document.body.addEventListener('keyup', function(e){
+            var keycode = e.keyCode;
+            if(keycode >= 97 && keycode <= 123){
+                keycode = (keycode -32);
+                console.log('true');
+            }
+            console.log(keycode);
+                document.getElementById(keycode).style.backgroundColor = 'transparent'
+        })
+    </script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, hsla(141, 100%, 51%, 0.7),rgb(5, 180, 255), rgba(58, 58, 252, 0.8));
+        }
+        header{
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: large;
+            letter-spacing: 2px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background: linear-gradient(45deg, rgba(249, 6, 6, 0.5),navy, rgba(6, 6, 247, 0.7));
+            height: 70px;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        .keyboard{
+            /* line-height: 50px; */
+            display: flex;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(253, 251, 251, 0.3),rgba(253, 251, 251, 0.1));
+            height: 80vh;
+            width: 70vw;
+            border-radius: 25px;
+            padding: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            position: relative;
+            bottom: 10px;
+            height: 15px;
+            width: 70vw;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: rgb(61, 87, 110);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: large;
+            margin: 0;
+        }
+        .key{
+            display: flex;
+            background-color: rgb(61, 87, 110);
+            color: aliceblue;
+            border: 1px solid black;
+            height: 50px;
+            width: 50px;
+            margin: 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+        audio{
+            visibility: hidden;
+        }
+        @media (max-width: 800px) and (min-width:525px) {
+            .key{
+                margin: 20px;
+            }
+        }
+        @media (max-width: 525px) and (min-width:405px) {
+            .keyboard{
+                height: 85vh;
+                margin-top: 5px;
+            }
+            .key{
+                margin: 15px;
+            }
+        }
+        @media (max-width: 405px) {
+            .keyboard{
+                height: 85vh;
+                margin-top: 5px;
+            }
+            .key{
+                margin: 15px;
+                height: 40px;
+                width: 40px;
+            }
+        }
+    </style>
+</body>
+</html>
